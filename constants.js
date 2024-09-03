@@ -11,4 +11,4 @@ Now, answer following question using above context.
 {question}
 `;
 
-export default TEMPLATE;
+export { TEMPLATE };
