@@ -1,15 +1,24 @@
+import dotenv from 'dotenv';
+dotenv.config();
 import { ChatOpenAI } from '@langchain/openai';
 import { ChatPromptTemplate } from '@langchain/core/prompts'
 import { StringOutputParser } from '@langchain/core/output_parsers'
 import { RunnableSequence } from '@langchain/core/runnables';
+import vectorStore from './vectorStore.js';
+import { TEMPLATE } from './prompt.js';
 
-import createEmbeddingsAndReturnVectorStore from './createEmbeddingsAndReturnVectorStore.js';
-import splitedDocs from './loadDocumentsAndSplit.js';
-import { TEMPLATE } from './constants.js';
-import { convertDocsToString } from './helpers.js';
 
-const vectorStore = await createEmbeddingsAndReturnVectorStore(splitedDocs);
+const convertDocsToString = (documents) => {
+    // console.log("Helloo..", documents);
+    return documents.map((document) => {
+        return `<doc>\n${document.pageContent}\n</doc>`
+    }).join("\n");
+};
+
 const retriever = vectorStore.asRetriever();
+
+// const res = await vectorStore.similaritySearch("Lease rental foreclosure or termination?")
+// console.log("similaritySearch", res)
 
 const docRetrieverChain = RunnableSequence.from([
     input => input.question,
@@ -36,7 +45,9 @@ const answerRetriever = RunnableSequence.from([
 ])
 
 const result = await answerRetriever.invoke({
-    question: "what are the benefits of using oauth2?"
+    question: "Lease duration?"
 })
 
 console.log(result)
+
+process.exit(0);
