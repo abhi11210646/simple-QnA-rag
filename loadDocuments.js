@@ -1,3 +1,5 @@
+import 'dotenv/config'
+
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 import { TextLoader } from "langchain/document_loaders/fs/text";
 
