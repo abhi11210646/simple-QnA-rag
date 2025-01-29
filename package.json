@@ -2,7 +2,9 @@
   "type": "module",
   "dependencies": {
     "@langchain/community": "^0.2.31",
+    "@langchain/core": "^0.3.36",
     "@langchain/mongodb": "^0.1.0",
+    "@langchain/ollama": "^0.1.5",
     "@langchain/openai": "^0.2.8",
     "dotenv": "^16.4.7",
     "langchain": "^0.2.17",

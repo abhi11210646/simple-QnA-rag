@@ -7,6 +7,9 @@ import { RunnableSequence } from '@langchain/core/runnables';
 import vectorStore from './vectorStore.js';
 import { TEMPLATE } from './prompt.js';
 
+import { ChatOllama } from "@langchain/ollama";
+
+
 
 const convertDocsToString = (documents) => {
     // console.log("Helloo..", documents);
@@ -27,9 +30,15 @@ const docRetrieverChain = RunnableSequence.from([
 ]);
 
 // LLM
-const llm = new ChatOpenAI({
+const llm2 = new ChatOpenAI({
     model: 'gpt-3.5-turbo'
 });
+
+// LLM 
+const llm = new ChatOllama({
+    "baseUrl": "https://llama3.ai.groupone.dev/",
+    "model": "llama3.1:latest"
+})
 
 // Prompt
 const prompt = ChatPromptTemplate.fromTemplate(TEMPLATE);
@@ -45,7 +54,7 @@ const answerRetriever = RunnableSequence.from([
 ])
 
 const result = await answerRetriever.invoke({
-    question: "Lease duration?"
+    question: "Who is eligible to take car lease?"
 })
 
 console.log(result)
