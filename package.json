@@ -8,6 +8,7 @@
     "@langchain/openai": "^0.2.8",
     "dotenv": "^16.4.7",
     "langchain": "^0.2.17",
-    "mongodb": "^6.12.0"
+    "mongodb": "^6.12.0",
+    "ws": "^8.18.0"
   }
 }

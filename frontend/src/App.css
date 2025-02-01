@@ -1,0 +1,170 @@
+/* Main container styles */
+.App {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #d0dfe5;
+}
+
+/* Chat container styling for a more realistic look */
+.chat-container {
+  width: 800px;
+  height: 600px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15), 0 4px 8px rgba(0, 0, 0, 0.1); /* Depth and shadow */
+  overflow: hidden;
+  position: relative;
+  font-family: Arial, sans-serif;
+}
+
+/* Chat header */
+h2 {
+  text-align: center;
+  color: #333;
+  padding: 15px;
+  margin: 0;
+  font-size: 1.2em;
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+/* Messages area */
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 15px;
+  background-color: #f0f5fa;
+}
+
+/* Message styling */
+.message {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 12px;
+}
+
+.message.sent {
+  justify-content: flex-end;
+}
+
+.message.received {
+  justify-content: flex-start;
+}
+
+/* Message bubbles */
+.message-text {
+  max-width: 70%;
+  padding: 10px 15px;
+  border-radius: 18px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  font-size: 0.9em;
+  line-height: 1.4;
+}
+
+.message-text.sent {
+  background-color: #daf8cb;
+  color: #333;
+  border-bottom-right-radius: 0;
+}
+
+.message-text.received {
+  background-color: #ffffff;
+  color: #333;
+  border-bottom-left-radius: 0;
+}
+
+/* User icon and name styling */
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.user-name {
+  font-weight: bold;
+  margin-left: 8px;
+  color: #007bff;
+  font-size: 0.85em;
+}
+
+/* Input area styling */
+.input-container {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  background-color: #f7f7f8;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  margin-right: 8px;
+  background-color: #eef3f7;
+  box-shadow: inset 0px 3px 6px rgba(0, 0, 0, 0.05);
+  font-size: 0.9em;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 40%;
+  cursor: pointer;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s ease;
+  font-size: 1em;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Scrollbar styling for the messages */
+.messages::-webkit-scrollbar {
+  width: 5px;
+}
+
+.messages::-webkit-scrollbar-thumb {
+  background-color: #007bff;
+  border-radius: 10px;
+}
+
+/* Fade-in animation for messages */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Style for sent messages */
+.message-text.sent {
+  background-color: #daf8cb; /* Light green background for sent messages */
+  color: #333;  /* Dark text color */
+  border-bottom-right-radius: 0;  /* No rounded bottom-right corner for sent messages */
+  padding: 10px;
+  margin-bottom: 10px;
+  max-width: 70%;
+  border-radius: 15px;
+  display: inline-block;
+  text-align: right;
+}
+
+/* Style for received messages */
+.message-text.received {
+  background-color: #ffffff;  /* White background for received messages */
+  color: #333;  /* Dark text color */
+  border-bottom-left-radius: 0;  /* No rounded bottom-left corner for received messages */
+  padding: 10px;
+  margin-bottom: 10px;
+  max-width: 70%;
+  border-radius: 15px;
+  display: inline-block;
+  text-align: left;
+}
